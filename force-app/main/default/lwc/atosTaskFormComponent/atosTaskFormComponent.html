@@ -1,0 +1,52 @@
+<template >
+    <div class="form" if:true={recordId}>
+        <p value={leadName}>This is for {leadName}</p>
+        <div class="slds-m-bottom_small">
+                <lightning-input type="search"
+                value={searchValue}
+                label="Find a User to Assign a new Task"
+                onchange={setNewInputValue}
+                ></lightning-input>
+            </div>
+            <lightning-button label="Search"
+            onclick={handleSearchKeyword}
+            variant="brand">
+        </lightning-button>
+        <div class="subForm" if:true={listOfUsersToDisplay}>
+            <div class="data-table" style="height: auto;">
+                <!-- sldsValidatorIgnoreNextLine -->
+                <lightning-datatable
+                key-field="id"
+                data={listOfUsersToDisplay}
+                columns={columns}
+                onrowselection={rowTableHandler}
+                max-row-selection="1"
+                hide-table-header="true">
+            </lightning-datatable>
+        </div>  
+        <lightning-combobox 
+        class="pick-list"
+        name="progress"
+        label="Status"
+        value={value}
+        placeholder="Select Progress"
+        options={options}
+        onchange={handleChange} >
+        </lightning-combobox>
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="text" label="Descriprion" value={taskDescription} onfocusout={getDescription} placeholder="Pass a message to your user..."></lightning-input>
+    </div>
+    <div class="date">
+        <lightning-input type="date" name="input1" label="Select a due date..." value={taskDate} onfocusout={getDate} min={todaysDate}></lightning-input>
+    </div>
+    <div>
+        <lightning-button label="Save!"
+        class="saveBtn"
+        onclick={sendTaskData}
+        disabled={disabledBtn}
+        variant="brand">
+    </lightning-button>
+    </div>
+    </div>
+</div>
+</template>

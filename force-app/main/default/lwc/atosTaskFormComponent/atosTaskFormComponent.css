@@ -1,0 +1,29 @@
+.form{
+    width: 800px;
+    height: auto;
+    padding: 50px 100px 50px 100px;
+    min-width: 600px;
+    border-radius: 4px;
+}
+.pick-list{
+    margin-top: 3vh;
+    width: 100%;
+}
+
+.data-table{
+    height: auto;
+    margin-top: 3vh;
+    width: 100%;
+}
+
+.slds-p-around_medium {
+    margin-top: 3vh;
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.date {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
