@@ -1,6 +1,6 @@
 # LWC Custom Form for Task object
 
-## What to be done
+## What was done
 
 - Two custom fields on User
 - Trigger that populates those fields when a Task for this user is created and assigned
