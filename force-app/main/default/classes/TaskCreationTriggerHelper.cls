@@ -4,9 +4,16 @@ public with sharing class TaskCreationTriggerHelper {
         List<User> result = new List<User>();
         List<Id> idsOfUser = new List<Id>();
         
-        for (Task ts : oldTrigger) {
-            idsOfUser.add(ts.OwnerId);
+        if (newTrigger != NUll) {
+            for (Task ts : newTrigger) {
+                idsOfUser.add(ts.OwnerId);
+            }
+        } else if (newTrigger == NULL && oldTrigger != Null) {
+            for (Task ts : oldTrigger) {
+                idsOfUser.add(ts.OwnerId);
+            }
         }
+
         Map<Id,User> mapOfUsers = new Map<Id, User>([SELECT Id, Username, FirstName, LastName, Email, Not_Started_Task__c, In_progress_tasks__c FROM User WHERE Id in: idsOfUser]);
     
         if(isDel == False) {
